@@ -75,7 +75,7 @@ If the tag name begins with a class or id, it defaults to a `<div>`.
 If an `{}` object is passed in it will be used to set attributes.
 
 ``` js
-var h = require('hyperscript')
+var h = require('hyperscript')()
 h('a', {href: 'https://npm.im/hyperscript'}, 'hyperscript')
 ```
 
@@ -92,7 +92,7 @@ for details.
 If an attribute is a function, then it will be registered as an event listener.
 
 ``` js
-var h = require('hyperscript')
+var h = require('hyperscript')()
 h('a', {href: '#',
   onclick: function (e) {
     alert('you are 1,000,000th visitor!')
@@ -106,14 +106,14 @@ h('a', {href: '#',
 If an attribute has a style property, then that will be handled specially.
 
 ``` js
-var h = require('hyperscript')
+var h = require('hyperscript')()
 h('h1.fun', {style: {'font-family': 'Comic Sans MS'}}, 'Happy Birthday!')
 ```
 
 or as a string
 
 ``` js
-var h = require('hyperscript')
+var h = require('hyperscript')()
 h('h1.fun', {style: 'font-family: Comic Sans MS'}}, 'Happy Birthday!')
 ```
 
@@ -138,7 +138,7 @@ Each item in the array is treated like a ordinary child. (string or HTMLElement)
 this is useful when you want to iterate over an object:
 
 ``` js
-var h = require('hyperscript')
+var h = require('hyperscript')()
 var obj = {
   a: 'Apple',
   b: 'Banana',
@@ -162,7 +162,7 @@ h('table',
 If you need to clean up a widget created using hyperscript - deregistering all its event handlers and observable listeners, you can use `context()`.
 
 ``` js
-var h = require('hyperscript').context()
+var h = require('hyperscript')().context()
 var o = require('observable')
 var text = o()
 text('click here to win a prize')
