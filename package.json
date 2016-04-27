@@ -1,12 +1,15 @@
 {
-  "name": "hyperscript",
+  "name": "hyperscript-custom",
   "version": "1.4.7",
-  "homepage": "https://github.com/dominictarr/hyperscript",
+  "homepage": "https://github.com/studio-b12/hyperscript-custom",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dominictarr/hyperscript.git"
+    "url": "git://github.com/studio-b12/hyperscript-custom.git"
   },
-  "author": "'Dominic Tarr' <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "contributors": [
+    "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+    "Tomek Wiszniewski <t.wiszniewski@gmail.com>"
+  ],
   "license": "MIT",
   "devDependencies": {
     "tape": "~2.13.3",
