@@ -1,6 +1,8 @@
 # hyperscript-custom
 
-*NOTE*: This is a fork [hyperscript](https://github.com/dominictarr/hyperscript) allowing some upfront configuration. Most importantly, it allows passing a custom implementation of `document` and using the full power of DOM outside the browser.
+**NOTE**: This is a fork [hyperscript](https://github.com/dominictarr/hyperscript) allowing some upfront configuration. Most importantly, it allows passing a custom implementation of `document` and using the full power of DOM outside the browser.
+
+---
 
 Create HyperText with JavaScript, on client or server.
 
