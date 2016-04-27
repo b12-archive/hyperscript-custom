@@ -36,11 +36,11 @@ h('div#page',
 [jsdom](https://github.com/tmpvar/jsdom) is a great project allowing to use DOM without a browser. Pass it to hyperscript while initializing:
 
 ``` js
-var isNode = require('detect-node');
+var isNode = require('detect-node')
 var h = require('hyperscript')({ document: (isNode ?
   require('jsdom').jsdom().defaultView.document :
   this.document
-)})
+) })
 ```
 
 ## pure server code
