@@ -1,4 +1,6 @@
-# HyperScript
+# hyperscript-custom
+
+*NOTE*: This is a fork [hyperscript](https://github.com/dominictarr/hyperscript) allowing some upfront configuration. Most importantly, it allows passing a custom implementation of `document` and using the full power of DOM outside the browser.
 
 Create HyperText with JavaScript, on client or server.
 
@@ -13,7 +15,8 @@ framework influenced by hyperscript but much more heavily optimized.
 ## Example
 
 ``` js
-var h = require('hyperscript')
+var h = require('hyperscript')()
+
 h('div#page',
   h('div#header',
     h('h1.classy', 'h', { style: {'background-color': '#22f'} })),
@@ -31,7 +34,19 @@ h('div#page',
       "reusable, interactive html widgets. "))
 ```
 
-## on the server
+## universal server/client code
+
+[jsdom](https://github.com/tmpvar/jsdom) is a great project allowing to use DOM without a browser. Pass it to hyperscript while initializing:
+
+``` js
+var isNode = require('detect-node');
+var h = require('hyperscript')({ document: (isNode ?
+  require('jsdom').jsdom().defaultView.document :
+  this.document
+)})
+```
+
+## pure server code
 
 you can still use hyperscript on the server,
 the limitation is that events don't make sense any more,
