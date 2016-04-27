@@ -1,8 +1,13 @@
 
 var test = require('tape')
-var h    = require('../')
-var o    = require('observable')
-var spy  = require('ispy')
+var isNode = require('detect-node');
+const doc = (isNode ?
+  require('jsdom').jsdom().defaultView.document :
+  this.document
+)
+var h = require('../')({ document: doc })
+var o = require('observable')
+var spy = require('ispy')
 var simu = require('simulate')
 
 test('simple', function (t) {
