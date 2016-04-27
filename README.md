@@ -4,9 +4,6 @@
 
 Create HyperText with JavaScript, on client or server.
 
-[![testling badge](https://ci.testling.com/dominictarr/hyperscript.png)]
-  (https://ci.testling.com/dominictarr/hyperscript)
-
 [Interactive Demo](http://dominictarr.github.com/hyperscript)
 
 See also [mercury](https://github.com/Raynos/mercury) is a modular ui
