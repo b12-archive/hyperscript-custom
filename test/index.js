@@ -134,12 +134,20 @@ test('context cleanup removes observable listeners', function(t){
   var className = o()
   className('para')
   var p = _h('p', {style: {color: color}, className: className}, text)
-  t.equal(p.outerHTML, '<p style=\"color: red; \" class=\"para\">hello</p>')
+  t.notEqual([
+    '<p style=\"color: red;\" class=\"para\">hello</p>',
+    '<p class=\"para\" style=\"color: red;\">hello</p>',
+  ].indexOf(p.outerHTML), -1);
+
   _h.cleanup()
   color('blue')
   text('world')
   className('section')
-  t.equal(p.outerHTML, '<p style=\"color: red; \" class=\"para\">hello</p>')
+  t.notEqual([
+    '<p style=\"color: red;\" class=\"para\">hello</p>',
+    '<p class=\"para\" style=\"color: red;\">hello</p>',
+  ].indexOf(p.outerHTML), -1);
+
   t.end()
 })
 
