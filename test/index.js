@@ -60,13 +60,15 @@ test('can set properties', function(t){
   t.end()
 })
 
-test('registers event handlers', function(t){
-  var onClick = spy()
-  var p = h('p', {onclick: onClick}, 'something')
-  simu.click(p)
-  t.assert(onClick.called)
-  t.end()
-})
+if ('createEventObject' in doc) {
+  test('registers event handlers', function(t){
+    var onClick = spy()
+    var p = h('p', {onclick: onClick}, 'something')
+    simu.click(p)
+    t.assert(onClick.called)
+    t.end()
+  })
+}
 
 test('sets styles', function(t){
   var div = h('div', {style: {'color': 'red'}})
@@ -156,15 +158,17 @@ test('context cleanup removes observable listeners', function(t){
   t.end()
 })
 
-test('context cleanup removes event handlers', function(t){
-  var _h = h.context()
-  var onClick = spy()
-  var button = _h('button', 'Click me!', {onclick: onClick})
-  _h.cleanup()
-  simu.click(button)
-  t.assert(!onClick.called, 'click listener was not triggered')
-  t.end()
-})
+if ('createEventObject' in doc) {
+  test('context cleanup removes event handlers', function(t){
+    var _h = h.context()
+    var onClick = spy()
+    var button = _h('button', 'Click me!', {onclick: onClick})
+    _h.cleanup()
+    simu.click(button)
+    t.assert(!onClick.called, 'click listener was not triggered')
+    t.end()
+  })
+}
 
 test('unicode selectors', function (t) {
   t.equal(h('.⛄').outerHTML, '<div class="⛄"></div>')
